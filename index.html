@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro AMAZONIA Bolivia | Centro de Innovación Desarrollo Sostenible</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amazon: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        jungle: '#0b2316',
+                        leaf: '#10b981',
+                        gold: '#f59e0b',
+                        warmgold: '#d97706'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para efectos visuales */
+        .bg-jungle-gradient {
+            background: linear-gradient(135deg, rgba(11, 35, 22, 0.95) 0%, rgba(20, 83, 45, 0.9) 100%);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+        }
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .pattern-dots {
+            background-image: radial-gradient(rgba(34, 197, 94, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amazon-500 selection:text-white">
+
+    <!-- NAV BAR -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-jungle/90 backdrop-blur-md border-b border-amazon-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- LOGO -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amazon-400 to-amazon-700 flex items-center justify-center text-white shadow-lg shadow-amazon-900/50 group-hover:scale-105 transition-transform">
+                        <!-- Icono SVG Jaguar/Naturaleza Integrado -->
+                        <svg class="w-8 h-8 fill-current text-white" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-5l-4 2.5 4 2.5zm6-2.5l-4 2.5v-5l4 2.5z text-amazon-300"/>
+                            <circle cx="9" cy="9" r="1.5" />
+                            <circle cx="15" cy="9" r="1.5" />
+                            <path d="M12 13c-1.5 0-2.5 1-2.5 1h5s-1-1-2.5-1z"/>
+                            <path d="M12 4a8 8 0 0 1 8 8c0 4.41-3.59 8-8 8s-8-3.59-8-8a8 8 0 0 1 8-8m0-2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight text-white flex items-center gap-1">
+                            Pro <span class="text-amazon-400">AMAZONIA</span>
+                        </span>
+                        <span class="text-[10px] font-semibold text-amazon-200 tracking-widest uppercase">Bolivia</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#inicio" class="text-sm font-medium text-slate-200 hover:text-amazon-400 transition-colors">Inicio</a>
+                    <a href="#proposito" class="text-sm font-medium text-slate-200 hover:text-amazon-400 transition-colors">Propósito</a>
+                    <a href="#historias" class="text-sm font-medium text-slate-200 hover:text-amazon-400 transition-colors">Historias</a>
+                    <a href="#impacto" class="text-sm font-medium text-slate-200 hover:text-amazon-400 transition-colors">Alcance</a>
+                    <a href="#ods" class="text-sm font-medium text-slate-200 hover:text-amazon-400 transition-colors">ODS</a>
+                    <a href="#necesidades" class="text-sm font-medium text-slate-200 hover:text-amazon-400 transition-colors">Necesidades</a>
+                    <a href="#apoyar" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-amazon-500 to-amazon-600 text-white hover:from-amazon-600 hover:to-amazon-700 shadow-md shadow-amazon-900/30 transition-all hover:scale-105">
+                        Cómo Apoyar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-jungle border-b border-amazon-800/60 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-base font-medium text-slate-200 hover:text-amazon-400">Inicio</a>
+            <a href="#proposito" class="block py-2 text-base font-medium text-slate-200 hover:text-amazon-400">Propósito</a>
+            <a href="#historias" class="block py-2 text-base font-medium text-slate-200 hover:text-amazon-400">Historias</a>
+            <a href="#impacto" class="block py-2 text-base font-medium text-slate-200 hover:text-amazon-400">Alcance</a>
+            <a href="#ods" class="block py-2 text-base font-medium text-slate-200 hover:text-amazon-400">ODS</a>
+            <a href="#necesidades" class="block py-2 text-base font-medium text-slate-200 hover:text-amazon-400">Necesidades</a>
+            <a href="#apoyar" class="block py-3 text-center rounded-xl text-base font-semibold bg-amazon-600 text-white">Cómo Apoyar</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-jungle">
+        <!-- Background Overlay Pattern & Gradient -->
+        <div class="absolute inset-0 pattern-dots opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-jungle/60 via-jungle/90 to-jungle"></div>
+
+        <!-- Decorative Glow Orbs -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-amazon-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amazon-900/60 border border-amazon-600/40 text-amazon-300 text-xs sm:text-sm font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-amazon-400 animate-pulse"></span>
+                        Centro de Innovación Desarrollo Sostenible
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        Tecnología para la <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amazon-400 via-emerald-300 to-teal-200 text-glow">
+                            Inclusión Productiva
+                        </span> <br>
+                        de la Amazonía
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-light">
+                        Creando soluciones tecnológicas adecuadas mediante la <strong class="text-white font-semibold">I+D+i</strong> (Investigación, Desarrollo e Innovación) para el desarrollo sostenible y la valoración de las comunidades.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#proposito" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-amazon-500 to-emerald-600 text-white hover:from-amazon-600 hover:to-emerald-700 shadow-lg shadow-amazon-950/50 transition-all hover:-translate-y-0.5">
+                            Descubre Nuestro Propósito
+                            <i class="fa-solid fa-arrow-right ml-3"></i>
+                        </a>
+                        <a href="#apoyar" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700 transition-all hover:-translate-y-0.5">
+                            Unirse como Aliado
+                        </a>
+                    </div>
+
+                    <!-- Counter stats -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-800">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-amazon-400">+99</div>
+                            <div class="text-xs sm:text-sm text-slate-400">Recursos Bioeconómicos</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-amazon-400">+15</div>
+                            <div class="text-xs sm:text-sm text-slate-400">Zonas de Impacto</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-amazon-400">100%</div>
+                            <div class="text-xs sm:text-sm text-slate-400">Tecnología Adaptada</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Visual Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amazon-500 to-emerald-500 opacity-30 blur-xl"></div>
+                        <div class="relative bg-jungle/90 border border-amazon-700/50 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+                            <div class="flex items-center justify-between border-b border-amazon-900 pb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-amazon-500/20 text-amazon-400 flex items-center justify-center text-xl">
+                                        <i class="fa-solid fa-seedling"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-white font-bold text-sm">Bioeconomía Amazónica</h3>
+                                        <p class="text-xs text-amazon-300">Bolivia</p>
+                                    </div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-amazon-900 text-amazon-300 border border-amazon-700">En Acción</span>
+                            </div>
+
+                            <!-- Interactive Tags Cloud -->
+                            <div class="space-y-2">
+                                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Superalimentos & Productos</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-amazon-950/80 text-amazon-200 border border-amazon-800 hover:border-amazon-500 transition-colors">Asaí</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-amazon-950/80 text-amazon-200 border border-amazon-800 hover:border-amazon-500 transition-colors">Cacao</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-amazon-950/80 text-amazon-200 border border-amazon-800 hover:border-amazon-500 transition-colors">Aceite de Cusi</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-amazon-950/80 text-amazon-200 border border-amazon-800 hover:border-amazon-500 transition-colors">Castaña</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-amazon-950/80 text-amazon-200 border border-amazon-800 hover:border-amazon-500 transition-colors">Palma Real</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-amazon-950/80 text-amazon-200 border border-amazon-800 hover:border-amazon-500 transition-colors">Majo</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-amazon-950/80 text-amazon-200 border border-amazon-800 hover:border-amazon-500 transition-colors">Almendra Chiquitana</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-bold bg-gold/20 text-gold border border-gold/30">+99 Productos</span>
+                                </div>
+                            </div>
+
+                            <!-- Mission snippet box -->
+                            <div class="p-4 rounded-xl bg-amazon-950/60 border border-amazon-800/60">
+                                <p class="text-xs text-slate-300 italic leading-relaxed">
+                                    "Transferimos conocimiento y maquinaria optimizada para transformar la recolección silvestre en cadenas de valor comunitarias y sostenibles."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPÓSITO & PILARES -->
+    <section id="proposito" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-amazon-600 font-extrabold text-sm uppercase tracking-widest">Nuestra Razón de Ser</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+                    Propósito e Innovación al Servicio del Bosque
+                </h2>
+                <p class="text-slate-600 text-lg">
+                    Crear soluciones tecnológicas adecuadas que generen desarrollo sostenible mediante la Investigación, Desarrollo e Innovación (I+D+i) para la inclusión productiva de la Amazonía boliviana.
+                </p>
+            </div>
+
+            <!-- Grid de Pilares -->
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <!-- Pilar 1 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-8 card-hover-effect">
+                    <div class="w-14 h-14 rounded-2xl bg-amazon-100 text-amazon-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Inclusión & Empoderamiento</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Revalorizamos el rol de las comunidades originarias e indígenas como verdaderos Guardianes del Bosque, asegurando que el desarrollo empiece desde el territorio.
+                    </p>
+                    <span class="inline-flex items-center text-xs font-bold text-amazon-700 uppercase tracking-wide">
+                        Indígena & Originario <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-8 card-hover-effect">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Tecnología Adecuada</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Desarrollamos e investigamos en acción maquinaria industrial y procesos mecánicos adaptados al contexto rural, optimizando tiempos y reduciendo esfuerzo físico.
+                    </p>
+                    <span class="inline-flex items-center text-xs font-bold text-emerald-700 uppercase tracking-wide">
+                        Investigación en Acción <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-8 card-hover-effect">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Desarrollo Sostenible</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Fomentamos el aprovechamiento responsable de especies amazónicas forestales no maderables, impulsando la economía verde sin deforestación.
+                    </p>
+                    <span class="inline-flex items-center text-xs font-bold text-amber-700 uppercase tracking-wide">
+                        Bioeconomía Circular <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORIAS DE INCLUSIÓN PRODUCTIVA -->
+    <section id="historias" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 pattern-dots opacity-10"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-amazon-400 font-extrabold text-sm uppercase tracking-widest">Impacto Real en Vidas</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                        Historias de Inclusión Productiva
+                    </h2>
+                </div>
+                <p class="text-slate-400 max-w-md mt-4 md:mt-0 text-sm">
+                    Conoce el rostro de quienes transforman sus comunidades a través de tecnología adaptada a sus necesidades.
+                </p>
+            </div>
+
+            <!-- Cards de Historias -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Historia 1: María -->
+                <div class="bg-slate-800/80 border border-slate-700 rounded-2xl overflow-hidden flex flex-col justify-between card-hover-effect">
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amazon-950 text-amazon-300 border border-amazon-700/50">
+                                Inclusión Productiva
+                            </span>
+                            <span class="text-slate-400 text-xs font-medium">52 años</span>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center text-2xl text-amazon-400 mb-2 border-2 border-amazon-500">
+                            <i class="fa-solid fa-user-nurse"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">María</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Superó extenuantes jornadas manuales de procesamiento gracias a la implementación de cilindros clasificadores y despulpadoras mecánicas en su comunidad.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-900/80 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                        <span><i class="fa-solid fa-gear text-amazon-400 mr-1"></i> Tecnología Mecanizada</span>
+                        <span class="text-amazon-300 font-semibold">Pro Amazonia</span>
+                    </div>
+                </div>
+
+                <!-- Historia 2: Martha -->
+                <div class="bg-slate-800/80 border border-slate-700 rounded-2xl overflow-hidden flex flex-col justify-between card-hover-effect">
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amazon-950 text-amazon-300 border border-amazon-700/50">
+                                Emprendimiento Biocosmético
+                            </span>
+                            <span class="text-slate-400 text-xs font-medium">63 años</span>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center text-2xl text-emerald-400 mb-2 border-2 border-emerald-500">
+                            <i class="fa-solid fa-pump-soap"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Martha</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Líder en la elaboración de <strong>Shampoo Casero y Biocosmética</strong>. Con agitadores industriales de acero adaptados por Pro AMAZONIA, incrementó su capacidad de producción sustentable.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-900/80 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                        <span><i class="fa-solid fa-flask text-emerald-400 mr-1"></i> Mezcladores Industriales</span>
+                        <span class="text-emerald-300 font-semibold">Pro Amazonia</span>
+                    </div>
+                </div>
+
+                <!-- Historia 3: Nancy -->
+                <div class="bg-slate-800/80 border border-slate-700 rounded-2xl overflow-hidden flex flex-col justify-between card-hover-effect">
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amazon-950 text-amazon-300 border border-amazon-700/50">
+                                Extracción de Aceites
+                            </span>
+                            <span class="text-slate-400 text-xs font-medium">39 años</span>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center text-2xl text-amber-400 mb-2 border-2 border-amber-500">
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Nancy</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Dedicada a la extracción artesanal de <strong>Aceite de Cusi</strong>. Ahora cuenta con herramientas de corte y prensado que duplican el rendimiento de la almendra de cusi sin lastimar sus manos.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-900/80 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                        <span><i class="fa-solid fa-droplet text-amber-400 mr-1"></i> Aceite Puro de Cusi</span>
+                        <span class="text-amber-300 font-semibold">Pro Amazonia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COBERTURA & ALCANCE REGIONAL (Mapa Conceptual e Impacto) -->
+    <section id="impacto" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Información -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-amazon-600 font-extrabold text-sm uppercase tracking-widest">Presencia Territorio Bolivia</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                        Zonas de Enfoque y Proyectos Ejecutados
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Nuestras intervenciones llegan directamente a comunidades clave en la cuenca amazónica y chiquitana de Bolivia. Con un centro operacional estratégico en Santa Cruz, articulamos tecnología de punta con sabiduría local.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Location Item 1 -->
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-amazon-100 text-amazon-700 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Centro de Operaciones</h4>
+                                <p class="text-xs text-slate-500">9no Anillo Zona Sur, Santa Cruz de la Sierra, Bolivia.</p>
+                            </div>
+                        </div>
+
+                        <!-- Location Item 2 -->
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Red de Innovación y Desarrollo Regional</h4>
+                                <p class="text-xs text-slate-500">Alianza estratégica interuniversitaria firmada para la transferencia tecnológica y desarrollo territorial.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta / Representación Interactivas Zonas -->
+                <div class="lg:col-span-6">
+                    <div class="bg-jungle rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border border-amazon-800">
+                        <div class="flex justify-between items-center mb-6 border-b border-amazon-800 pb-4">
+                            <div>
+                                <h3 class="font-bold text-lg text-white">Mapa de Impacto de Proyectos</h3>
+                                <p class="text-xs text-amazon-300">Monitoreo de proyectos ejecutados</p>
+                            </div>
+                            <span class="px-3 py-1 bg-amazon-600 text-white text-xs font-bold rounded-full">Bolivia</span>
+                        </div>
+
+                        <!-- Contenedor Visual de Regiones Simulado -->
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-amazon-950/80 border border-amazon-700/60 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-3 h-3 rounded-full bg-amazon-400"></span>
+                                    <div>
+                                        <div class="font-semibold text-sm">Zona Norte & Pando</div>
+                                        <div class="text-[11px] text-slate-400">Aprovechamiento de Castaña y Asaí</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-amazon-300">Ejecutado</span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-amazon-950/80 border border-amazon-700/60 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                                    <div>
+                                        <div class="font-semibold text-sm">Beni & Valles Amazónicos</div>
+                                        <div class="text-[11px] text-slate-400">Extracción de Aceites & Majo</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-300">Ejecutado</span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-amazon-950/80 border border-amazon-700/60 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-3 h-3 rounded-full bg-teal-400"></span>
+                                    <div>
+                                        <div class="font-semibold text-sm">Santa Cruz & Chiquitania</div>
+                                        <div class="text-[11px] text-slate-400">Biocosmética, Cusi & Almendra</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-teal-300">Ejecutado</span>
+                            </div>
+                        </div>
+
+                        <!-- Footer card info -->
+                        <div class="mt-6 pt-4 border-t border-amazon-900 text-center text-xs text-slate-400">
+                            <i class="fa-solid fa-check-double text-amazon-400 mr-1"></i> Cobertura en constante expansión con apoyo de la Red de Universidades.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OBJETIVOS DE DESARROLLO SOSTENIBLE (ODS) -->
+    <section id="ods" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-amazon-600 font-extrabold text-sm uppercase tracking-widest">Compromiso Global</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+                    Alineación con los Objetivos de Desarrollo Sostenible (ODS)
+                </h2>
+                <p class="text-slate-600">
+                    Nuestras iniciativas tecnológicas y sociales responden de manera directa a la Agenda global para el desarrollo humano y ambiental.
+                </p>
+            </div>
+
+            <!-- ODS Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- ODS 1 -->
+                <div class="p-6 rounded-2xl bg-red-50 border border-red-200 hover:border-red-400 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-red-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">1</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Fin de la Pobreza</h3>
+                    <p class="text-slate-600 text-xs">Inclusión productiva que incrementa ingresos familiares en zonas rurales.</p>
+                </div>
+
+                <!-- ODS 2 -->
+                <div class="p-6 rounded-2xl bg-amber-50 border border-amber-200 hover:border-amber-400 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-amber-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">2</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Hambre Cero</h3>
+                    <p class="text-slate-600 text-xs">Valorización de frutos amazónicos con alto valor nutricional.</p>
+                </div>
+
+                <!-- ODS 5 -->
+                <div class="p-6 rounded-2xl bg-orange-50 border border-orange-200 hover:border-orange-400 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-orange-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">5</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Igualdad de Género</h3>
+                    <p class="text-slate-600 text-xs">Empoderamiento económico de mujeres productoras e indígenas.</p>
+                </div>
+
+                <!-- ODS 8 -->
+                <div class="p-6 rounded-2xl bg-red-900/10 border border-red-900/20 hover:border-red-700 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-red-800 text-white font-extrabold flex items-center justify-center text-lg mb-4">8</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Trabajo Decente</h3>
+                    <p class="text-slate-600 text-xs">Crecimiento económico inclusivo con tecnología limpia.</p>
+                </div>
+
+                <!-- ODS 9 -->
+                <div class="p-6 rounded-2xl bg-orange-100 border border-orange-300 hover:border-orange-500 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500 text-white font-extrabold flex items-center justify-center text-lg mb-4">9</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Industria e Innovación</h3>
+                    <p class="text-slate-600 text-xs">Diseño de maquinaria tecnológica adaptada e I+D+i local.</p>
+                </div>
+
+                <!-- ODS 10 -->
+                <div class="p-6 rounded-2xl bg-pink-50 border border-pink-200 hover:border-pink-400 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-pink-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">10</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Reducción de Desigualdades</h3>
+                    <p class="text-slate-600 text-xs">Acceso a tecnología en comunidades amazónicas postergadas.</p>
+                </div>
+
+                <!-- ODS 13 -->
+                <div class="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 hover:border-emerald-400 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">13</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Acción por el Clima</h3>
+                    <p class="text-slate-600 text-xs">Protección de la selva en pie mediante alternativas sostenibles.</p>
+                </div>
+
+                <!-- ODS 15 -->
+                <div class="p-6 rounded-2xl bg-green-50 border border-green-200 hover:border-green-400 transition-all card-hover-effect">
+                    <div class="w-10 h-10 rounded-lg bg-green-700 text-white font-extrabold flex items-center justify-center text-lg mb-4">15</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Vida de Ecosistemas</h3>
+                    <p class="text-slate-600 text-xs">Conservación de la biodiversidad y fauna de la región.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NECESIDADES & REQUERIMIENTOS TÉCNICOS -->
+    <section id="necesidades" class="py-24 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-amazon-400 font-extrabold text-sm uppercase tracking-widest">Para Escalar Nuestro Impacto</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Necesidades Técnicas & Alianzas
+                </h2>
+                <p class="text-slate-400">
+                    Para expandir la transferencia tecnológica a más comunidades amazónicas, requerimos equipamiento e infraestructura clave.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Necesidad 1: Transporte -->
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 space-y-4 relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-xl bg-amazon-950 text-amazon-400 flex items-center justify-center text-xl border border-amazon-700/50">
+                        <i class="fa-solid fa-truck-monster"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Transporte & Logística</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Para trasladar prototipos de maquinaria y técnicos a comunidades remotas sin caminos asfaltados.
+                    </p>
+                    <ul class="text-xs text-amazon-300 space-y-2 font-medium pt-2 border-t border-slate-700">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amazon-400"></i> Vehículo 4x4 Camioneta de trabajo</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amazon-400"></i> Remolque pesado para maquinaria</li>
+                    </ul>
+                </div>
+
+                <!-- Necesidad 2: Maquinaria CNC / Láser -->
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 space-y-4 relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-950 text-emerald-400 flex items-center justify-center text-xl border border-emerald-700/50">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Tecnología de Fabricación</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Herramientas avanzadas para acelerar la construcción e innovación en el centro de operaciones.
+                    </p>
+                    <ul class="text-xs text-emerald-300 space-y-2 font-medium pt-2 border-t border-slate-700">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Máquinas CNC de corte industrial</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Máquina Cortadora Láser</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Torno mecánico de precisión</li>
+                    </ul>
+                </div>
+
+                <!-- Necesidad 3: Materiales -->
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 space-y-4 relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-xl bg-amber-950 text-amber-400 flex items-center justify-center text-xl border border-amber-700/50">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Materiales e Insumos</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Materia prima metálica y componentes electromecánicos para ensamblaje continuo.
+                    </p>
+                    <ul class="text-xs text-amber-300 space-y-2 font-medium pt-2 border-t border-slate-700">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Aceros inoxidables Grado Alimenticio</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Motores eléctricos y repuestos</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Rodamientos, chumaceras y correas</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO APOYAR & CONTACTO -->
+    <section id="apoyar" class="py-24 bg-gradient-to-b from-slate-100 to-amazon-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Opciones de Apoyo -->
+                <div class="lg:col-span-6 space-y-8">
+                    <div>
+                        <span class="text-amazon-700 font-extrabold text-sm uppercase tracking-widest">Súmate al Cambio</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+                            ¿Cómo puedes apoyar a Pro AMAZONIA?
+                        </h2>
+                        <p class="text-slate-600 mt-3">
+                            Tu colaboración institucional o individual fortalece directamente a las familias recolectoras e investigadoras de la región.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Opción 1: Auspicio Corporativo -->
+                        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amazon-600 text-white flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900">Auspicio & Patrocinio ESG</h3>
+                                <p class="text-xs text-slate-600 mt-1">
+                                    Empresas e instituciones pueden financiar módulos tecnológicos específicos o la donación de maquinaria para comunidades seleccionadas.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Opción 2: Rifa Megacanastón -->
+                        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold text-white flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-ticket"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900">Megacanastón Solidario</h3>
+                                <p class="text-xs text-slate-600 mt-1">
+                                    Participa en la rifa anual de canastones con productos bioeconómicos procesados (Asaí, Chocola, Aceites puros). Lo recaudado financia nuevos prototipos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario Interactivo de Contacto -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Formulario de Alianza / Contacto</h3>
+                            <p class="text-xs text-slate-500 mt-1">Envíanos un mensaje para colaborar, donar o consultar proyectos.</p>
+                        </div>
+
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Nombre Completo / Empresa</label>
+                                <input type="text" required placeholder="Ej. Maria Gutierrez u Organización XYZ" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amazon-500 text-sm">
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Correo Electrónico</label>
+                                    <input type="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amazon-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Teléfono / WhatsApp</label>
+                                    <input type="tel" placeholder="+591 70000000" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amazon-500 text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Tipo de Apoyo / Interés</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amazon-500 text-sm bg-white">
+                                    <option>Auspicio Corporativo / Donación</option>
+                                    <option>Comprar boletos Megacanastón</option>
+                                    <option>Alianza Académica o Universitaria</option>
+                                    <option>Voluntariado / Consultas</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Mensaje</label>
+                                <textarea rows="3" placeholder="Escribe tus comentarios o consulta aquí..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amazon-500 text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-amazon-600 to-emerald-600 text-white hover:from-amazon-700 hover:to-emerald-700 shadow-md transition-all">
+                                Enviar Mensaje de Apoyo
+                            </button>
+                        </form>
+
+                        <!-- Feedback Message Box (Replaces alert) -->
+                        <div id="form-feedback" class="hidden p-4 rounded-xl bg-amazon-100 border border-amazon-300 text-amazon-800 text-sm text-center font-medium">
+                            ¡Gracias por tu interés en Pro AMAZONIA! Tu mensaje ha sido recibido con éxito. Nos pondremos en contacto muy pronto.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-jungle text-slate-400 py-16 border-t border-amazon-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-amazon-600 flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <span class="text-2xl font-black text-white">Pro AMAZONIA <span class="text-amazon-400">Bolivia</span></span>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-md">
+                        Centro de Innovación Desarrollo Sostenible. Uniendo la tecnología y el conocimiento originario para proteger el ecosistema amazónico boliviano.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#proposito" class="hover:text-amazon-400 transition-colors">Propósito & Pilares</a></li>
+                        <li><a href="#historias" class="hover:text-amazon-400 transition-colors">Historias de Impacto</a></li>
+                        <li><a href="#impacto" class="hover:text-amazon-400 transition-colors">Zonas de Enfoque</a></li>
+                        <li><a href="#ods" class="hover:text-amazon-400 transition-colors">Objetivos ODS</a></li>
+                        <li><a href="#necesidades" class="hover:text-amazon-400 transition-colors">Necesidades Técnicas</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Ubicación & Operaciones</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-amazon-400 mt-1"></i>
+                            <span>Centro de Operaciones: 9no Anillo Zona Sur, Santa Cruz, Bolivia.</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-handshake text-amazon-400"></i>
+                            <span>Red de Innovación y Desarrollo Regional</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-amazon-900/60 flex flex-col sm:flex-row justify-between items-center text-xs space-y-4 sm:space-y-0">
+                <p>&copy; 2026 Pro AMAZONIA Bolivia - Todos los derechos reservados.</p>
+                <div class="flex space-x-6 text-slate-400">
+                    <a href="#" class="hover:text-amazon-400 transition-colors">Desarrollo Sostenible</a>
+                    <a href="#" class="hover:text-amazon-400 transition-colors">I+D+i Amazónico</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC SCRIPTS -->
+    <script>
+        // Toggle Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Form Submit Simulation without alert()
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('form-feedback');
+            const form = document.getElementById('contact-form');
+            
+            form.classList.add('hidden');
+            feedback.classList.remove('hidden');
+        }
+
+        // Navbar Shadow effect on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-xl', 'bg-jungle');
+            } else {
+                navbar.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+</body>
+</html>
